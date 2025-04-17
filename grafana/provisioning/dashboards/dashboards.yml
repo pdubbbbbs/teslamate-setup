@@ -1,0 +1,10 @@
+
+apiVersion: 1
+providers:
+  - name: "TeslaMate"
+    folder: "TeslaMate"
+    type: file
+    allowUiUpdates: true
+    options:
+      path: /etc/grafana/dashboards
+

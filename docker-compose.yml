@@ -41,10 +41,21 @@ services:
       - DATABASE_NAME=teslamate
       - DATABASE_HOST=database
       - VIRTUAL_HOST=localhost
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=Walter86!
+      - GF_AUTH_ANONYMOUS_ENABLED=false
+      - GF_INSTALL_PLUGINS=pr0ps-trackmap-panel,natel-plotly-panel
+      - GF_PATHS_PROVISIONING=/etc/grafana/provisioning
     ports:
       - 3000:3000
     volumes:
       - teslamate-grafana-data:/var/lib/grafana
+      - ./grafana/dashboards:/etc/grafana/dashboards
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+    depends_on:
+      - database
+      - teslamate
 
   mosquitto:
     image: eclipse-mosquitto:2
