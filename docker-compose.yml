@@ -6,11 +6,11 @@ services:
     restart: always
     environment:
       - DATABASE_USER=teslamate
-      - DATABASE_PASS=secret
+      - DATABASE_PASS=YZwYfkoLfd5tPNcGtLuSbI8qnKStIM1U
       - DATABASE_NAME=teslamate
       - DATABASE_HOST=database
       - MQTT_HOST=mosquitto
-      - VIRTUAL_HOST=teslamate.example.com
+      - VIRTUAL_HOST=localhost
       - CHECK_ORIGIN=true
     ports:
       - 4000:4000
@@ -25,7 +25,7 @@ services:
     restart: always
     environment:
       - POSTGRES_USER=teslamate
-      - POSTGRES_PASSWORD=secret
+      - POSTGRES_PASSWORD=YZwYfkoLfd5tPNcGtLuSbI8qnKStIM1U
       - POSTGRES_DB=teslamate
     volumes:
       - teslamate-db:/var/lib/postgresql/data
@@ -35,10 +35,10 @@ services:
     restart: always
     environment:
       - DATABASE_USER=teslamate
-      - DATABASE_PASS=secret
+      - DATABASE_PASS=YZwYfkoLfd5tPNcGtLuSbI8qnKStIM1U
       - DATABASE_NAME=teslamate
       - DATABASE_HOST=database
-      - VIRTUAL_HOST=grafana.example.com
+      - VIRTUAL_HOST=localhost
     ports:
       - 3000:3000
     volumes:
